@@ -11,13 +11,13 @@ int main(int argc, char** argv) {
     do {
         printf("Enter an item to add to your list: (or 'q' to quit)\n");
         fgets(input, 127, stdin);
-        puts(input);
         items[i] = strndup(input, 127);
         ++i;
-    } while(strcmp(input, "q") != 10); // what?
+    } while(strcmp(input, "q\n") != 0); 
 
     for(int j = 0; j < i; ++j) {
-        printf("%s\n", items[j]);
+        printf("%s", items[j]);
+        free(items[j]);
     }
     printf("Have a nice day!\n");
 
